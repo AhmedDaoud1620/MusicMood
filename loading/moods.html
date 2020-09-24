@@ -1,0 +1,155 @@
+<div class="slideShow viewSlide" id="moodSlideShow" onload="checkPlayingMusicForSlideShow()">
+    <div id="slideShowCloseBackground">
+        <i class="fas fa-times fa-2x slideShowClose"></i>
+    </div>
+</div>
+<div id="moodsMainContent">
+    <h1>Moods</h1>
+    <div class="moodContainer" id="rainyday">
+        <h2 class="moodTitle">Rainy Day</h2>
+        <p class="moodDescription">Staying home on a rainy cold day vibes</p>
+        <i class="fas fa-play-circle fa-3x playbtnI" id="1jgFnZxEerLuy_QqLrW0ZbsMQH2G9DYqS"></i>
+    </div>
+    <div class="moodContainer" id="summernight">
+        <h2 class="moodTitle">Summer Night</h2>
+        <p class="moodDescription">Spending the night out chillin vibes</p>
+        <i class="fas fa-play-circle fa-3x" id="1pU5NBz2RKuE69q8MSCoIFKuf2w1Iv9hV"></i>
+    </div>
+    <div class="moodContainer" id="peacefulmorning">
+        <h2 class="moodTitle">Peaceful Morning</h2>
+        <p class="moodDescription">Start the day with sunshine positive vibes</p>
+        <i class="fas fa-play-circle fa-3x" id="1MeOs96GC4-QN-tj52-axR4EcezAUJr9h"></i>
+    </div>
+    <div class="moodContainer" id="nightynight">
+        <h2 class="moodTitle">Nighty Night</h2>
+        <p class="moodDescription">Twinkle Twinkle Little Star, relaxing lullabies</p>
+        <i class="fas fa-play-circle fa-3x" id="1J-b5OtswHCIbBdW-RriGiCLRyMWIMk_N"></i>
+    </div>
+    <div class="moodContainer" id="whiskeyblues">
+        <h2 class="moodTitle">Whiskey Blues &#127925;</h2>
+        <p class="moodDescription">A whiskey glass on a Lonely late night</p>
+        <i class="fas fa-play-circle fa-3x" id="1j_okh1lAoW63gP-Evu5ysvajza1bwsHQ"></i>
+    </div>
+    <div class="moodContainer" id="midnightjazz">
+        <h2 class="moodTitle">Midnight Jazz</h2>
+        <p class="moodDescription">Late nights chilln at Café vibes</p>
+        <i class="fas fa-play-circle fa-3x" id="1sTGTSlhvsgzxafmJF-uWq9GmU8xrCQcR"></i>
+    </div>
+    <div class="moodContainer" id="reading">
+        <h2 class="moodTitle">Reading</h2>
+        <p class="moodDescription">Enjoy your afternoon reading with classic vibes</p>
+        <i class="fas fa-play-circle fa-3x" id="19vqfR6JyZut_-zu-nH66mdqiRowY0iRx"></i>
+    </div>
+    <div class="moodContainer" id="spiritual">
+        <h2 class="moodTitle">Spiritual</h2>
+        <p class="moodDescription">Enter the spirit realm with some magical vibes</p>
+        <i class="fas fa-play-circle fa-3x" id="1tudAau22OVeZwNCvJS3a544D2g9hRh74"></i>
+    </div>
+    <div class="moodContainer" id="sadnights">
+        <h2 class="moodTitle">Sad Nights</h2>
+        <p class="moodDescription">Smooth chello to help through the lousy nights</p>
+        <i class="fas fa-play-circle fa-3x" id="1nLLWjXSLelWBxuV50hEMrs9ENTGmkAxJ"></i>
+    </div>
+
+
+</div>
+
+<script>
+    function checkPlayingMusicForSlideShow(){
+        if(isPlaying){
+            slideShowDiv.classList.toggle('viewSlide');
+        }
+    }
+    var slideShowCloseBtn = document.getElementById('slideShowCloseBackground');
+    var slideShowDiv = document.getElementById('moodSlideShow');
+    // slideshow stuff
+    slideShowCloseBtn.addEventListener('click', function () {
+        slideShowDiv.classList.toggle('viewSlide');
+
+    });
+
+    function showSlider() {
+        slideShowDiv.classList.toggle('viewSlide');
+        slideShowDiv.style.background = `url('img/slideshow/${containerID}.jpg') no-repeat center center / cover`;
+    }
+
+    var moodContainers = document.querySelectorAll(".moodContainer");
+    moodContainers.forEach(function (container) {
+        let itemId = container.getAttribute("id");
+        container.style.background = `url('img/containerimg/${itemId}.jpg') no-repeat center center / cover`;
+    });
+    
+    if(playingCheck){
+        document.getElementById(playingId).classList.add('fa-pause-circle');
+        document.getElementById(playingId).classList.remove('fa-play-circle');
+    }
+    function setPlayingSrc(src) {
+            musicPlayer.setAttribute("src", src);
+            whatsPlaying = src;
+        }
+
+
+        $("#moodsMainContent i").on("click", function () {
+            containerID = this.parentElement.id;
+            if (!playingCheck) {
+                if (whatsPlaying != `https://docs.google.com/uc?export=download&id=${this.id}`) {
+                    setPlayingSrc(`https://docs.google.com/uc?export=download&id=${this.id}`);
+                    playAudio();
+                    playingCheck = true;
+                    playingId = this.id;
+                    this.classList.remove('fa-play-circle');
+                    this.classList.add('fa-pause-circle');
+                }
+                else {
+                    playAudio();
+                    playingCheck = true;
+                    this.classList.remove('fa-play-circle');
+                    this.classList.add('fa-pause-circle');
+                }
+
+            }
+            else {
+                if (playingId == this.id) {
+                    pauseAudio();
+                    playingCheck = false;
+                    this.classList.remove('fa-pause-circle');
+                    this.classList.add('fa-play-circle');
+                }
+                else {
+                    document.getElementById(playingId).classList.remove('fa-pause-circle');
+                    document.getElementById(playingId).classList.add('fa-play-circle');
+                    setPlayingSrc(`https://docs.google.com/uc?export=download&id=${this.id}`);
+                    loadAudio();
+                    playingCheck = true;
+                    playingId = this.id;
+                    this.classList.remove('fa-play-circle');
+                    this.classList.add('fa-pause-circle');
+
+                }
+            }
+        });
+
+        // music stuff
+
+        function playAudio() {
+            musicPlayer.play();
+            showSlider();
+            isPlaying = true;
+            musicPlayer.onended = function () {
+                document.getElementById(playingId).classList.remove('fa-pause-circle');
+                document.getElementById(playingId).classList.add('fa-play-circle');
+                slideShowDiv.classList.add('viewSlide');
+                playingCheck = false;
+            }
+        }
+
+        function pauseAudio() {
+            musicPlayer.pause();
+            isPlaying = false;
+        }
+        function loadAudio() {
+            musicPlayer.load();
+            playAudio();
+        }
+        
+</script>

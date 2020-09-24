@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Mood</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="collapsebtn">
+            <div class="collapse-line1"></div>
+            <div class="collapse-line2"></div>
+            <div class="collapse-line3"></div>
+        </div>
+
+        <div class="navitems">
+            <div class="navtitle">
+                <i class="fas fa-music music-icon"></i>
+                <a href="index" id="home">Music Mood</a>
+            </div>
+
+            <div class="timer">
+                <p class="timerValue" id="shownTimer"></p>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="moods" class="moodBtn" id="moods">Moods</a></li>
+                <li><a href="about" class="aboutBtn" id="about">About</a></li>
+                <li><a href="javascript:void(0)" onclick="hideShowTimer()">Timer</a></li>
+            </ul>
+        </div>
+        <div id="timeDivContainer" class="showTimerPanel">
+            <div id="timediv">
+                <input autocomplete="off" type="range" min="0" max="120" value="0" class="setTimer" id="setTimer"
+                    smooth="yes">
+                <p id="time"></p>
+                <a href="#" id="setTimeBtn" onclick="setTimer()">Set</a>
+            </div>
+        </div>
+
+    </nav>
+    <audio id="player">
+        <source src="music/memories.mp3" type="audio/mpeg">
+    </audio>
+    <div class="rootDiv" id="maincont">
+        <div class="slideShow viewSlide" id="moodSlideShow">
+            <div id="slideShowCloseBackground">
+                <i class="fas fa-times fa-2x slideShowClose"></i>
+            </div>
+        </div>
+        <div id="moodsMainContent">
+            <h1>Moods</h1>
+            <div class="moodContainer" id="rainyday">
+                <h2 class="moodTitle">Rainy Day</h2>
+                <p class="moodDescription">Staying home on a rainy cold day vibes</p>
+                <i class="fas fa-play-circle fa-3x playbtnI" id="1jgFnZxEerLuy_QqLrW0ZbsMQH2G9DYqS"></i>
+            </div>
+            <div class="moodContainer" id="summernight">
+                <h2 class="moodTitle">Summer Night</h2>
+                <p class="moodDescription">Spending the night out chillin vibes</p>
+                <i class="fas fa-play-circle fa-3x" id="1pU5NBz2RKuE69q8MSCoIFKuf2w1Iv9hV"></i>
+            </div>
+            <div class="moodContainer" id="peacefulmorning">
+                <h2 class="moodTitle">Peaceful Morning</h2>
+                <p class="moodDescription">Start the day with sunshine positive vibes</p>
+                <i class="fas fa-play-circle fa-3x" id="1MeOs96GC4-QN-tj52-axR4EcezAUJr9h"></i>
+            </div>
+            <div class="moodContainer" id="nightynight">
+                <h2 class="moodTitle">Nighty Night</h2>
+                <p class="moodDescription">Twinkle Twinkle Little Star, relaxing lullabies</p>
+                <i class="fas fa-play-circle fa-3x" id="1J-b5OtswHCIbBdW-RriGiCLRyMWIMk_N"></i>
+            </div>
+            <div class="moodContainer" id="whiskeyblues">
+                <h2 class="moodTitle">Whiskey Blues &#127925;</h2>
+                <p class="moodDescription">A whiskey glass on a Lonely late night</p>
+                <i class="fas fa-play-circle fa-3x" id="1j_okh1lAoW63gP-Evu5ysvajza1bwsHQ"></i>
+            </div>
+            <div class="moodContainer" id="midnightjazz">
+                <h2 class="moodTitle">Midnight Jazz</h2>
+                <p class="moodDescription">Late nights chilln at Café vibes</p>
+                <i class="fas fa-play-circle fa-3x" id="1sTGTSlhvsgzxafmJF-uWq9GmU8xrCQcR"></i>
+            </div>
+            <div class="moodContainer" id="reading">
+                <h2 class="moodTitle">Reading</h2>
+                <p class="moodDescription">Enjoy your afternoon reading with classic vibes</p>
+                <i class="fas fa-play-circle fa-3x" id="19vqfR6JyZut_-zu-nH66mdqiRowY0iRx"></i>
+            </div>
+            <div class="moodContainer" id="spiritual">
+                <h2 class="moodTitle">Spiritual</h2>
+                <p class="moodDescription">Enter the spirit realm with some magical vibes</p>
+                <i class="fas fa-play-circle fa-3x" id="1tudAau22OVeZwNCvJS3a544D2g9hRh74"></i>
+            </div>
+            <div class="moodContainer" id="sadnights">
+                <h2 class="moodTitle">Sad Nights</h2>
+                <p class="moodDescription">Smooth chello to help through the lousy nights</p>
+                <i class="fas fa-play-circle fa-3x" id="1nLLWjXSLelWBxuV50hEMrs9ENTGmkAxJ"></i>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>

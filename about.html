@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Mood</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="collapsebtn">
+            <div class="collapse-line1"></div>
+            <div class="collapse-line2"></div>
+            <div class="collapse-line3"></div>
+        </div>
+
+        <div class="navitems">
+            <div class="navtitle">
+                <i class="fas fa-music music-icon"></i>
+                <a href="index" id="home">Music Mood</a>
+            </div>
+
+            <div class="timer">
+                <p class="timerValue" id="shownTimer"></p>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="moods" class="moodBtn" id="moods">Moods</a></li>
+                <li><a href="about" class="aboutBtn" id="about">About</a></li>
+                <li><a href="javascript:void(0)" onclick="hideShowTimer()">Timer</a></li>
+            </ul>
+        </div>
+        <div id="timeDivContainer" class="showTimerPanel">
+            <div id="timediv">
+                <input autocomplete="off" type="range" min="0" max="120" value="0" class="setTimer" id="setTimer"
+                    smooth="yes">
+                <p id="time"></p>
+                <a href="#" id="setTimeBtn" onclick="setTimer()">Set</a>
+            </div>
+        </div>
+
+    </nav>
+    <audio id="player">
+        <source src="music/memories.mp3" type="audio/mpeg">
+    </audio>
+    <div class="rootDiv" id="maincont">
+        <div id="aboutMainContent">
+            <div id="aboutLogoTitle">
+                <i class="fas fa-music fa-3x"></i>
+                <h1>Music Mood</h1>
+            </div>
+            <div id="aboutTextDiv">
+                <p>This website is free, greatly optimized to reduce data usage (Internet Quota Friendly) and definitely AWESOME</p>
+            </div>
+            
+            <div id="socialLinks">
+                <p id="note">Moods made with love.<br> Enjoy it <span><i class="fas fa-heart"></i></span></p>
+                <div id="links">
+                    <a href="https://www.facebook.com/killunter" id="facebookLink" target="_blank"><i class="fab fa-facebook-f fa-lg faceIcon"></i></a> 
+                    <a href="https://twitter.com/LuciferX0X" id="twitterLink" target="_blank"><i class="fab fa-twitter fa-lg twitterIcon"></i></a> 
+                    <a href="https://soundcloud.com/lucifer1620" id="soundcloudLink" target="_blank"><i class="fab fa-soundcloud fa-lg soundIcon"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>

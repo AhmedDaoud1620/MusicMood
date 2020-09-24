@@ -1,0 +1,654 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: tahoma;
+}
+
+nav{
+    height: 8vh;
+    background: #0a0a0a
+}
+.navitems{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.music-icon{
+    color: white;
+    margin-right: 1px;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin: auto;
+}
+.timerValue{
+    color: white;
+    
+}
+
+.navtitle{
+    display:flex;
+    width: 15%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+}
+.navtitle a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+
+
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    width: 30%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+
+
+}
+.nav-links li a{
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+}
+.nav-links li a:hover {
+    color: #a11aca;
+}
+
+
+#timeDivContainer{
+    position: fixed;
+    /* display: none; */
+    width: 260px;
+    top: 8%;
+    right: 0;
+    background-color: #0a0a0a;
+    border-radius: 0px 0px 0px 10px;
+    z-index: 1;
+}
+#timediv{
+    position: relative;
+    padding: 10px;
+}
+
+#setTimer{
+    width: 100%;
+}
+
+#time{
+    margin: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    
+}
+#setTimeBtn{
+    position: relative;
+    left:85%;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+#setTimeBtn:active{
+    color: #a11aca;
+}
+
+.showTimerPanel{
+    display: none;
+}
+.show-time{
+    visibility: hidden;
+}
+
+/* slider stuff  */
+
+input[type="range"] {
+ -webkit-appearance: none;
+ background-color: #0a0a0a;
+}
+
+input[type="range"]:focus {
+ outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+ background: #a11aca;
+ height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+ background: #a11aca;
+ height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ height: 15px;
+ width: 15px;
+ background: white;
+ margin-top: -5px;
+ border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+ height: 15px;
+ width: 15px;
+ background: white;
+ margin-top: -5px;
+ border-radius: 50%;
+}
+
+.rootDiv{
+    height: 92vh;
+}
+
+/* main content home */
+
+#homeMainContent{
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    '. . . . . .'
+    'main main main right right right'
+    'footer footer footer footer footer footer';
+    grid-gap: 10px;
+    padding: 10px;
+    background: url('img/homebg.jpg') no-repeat center center / cover;
+}
+
+.mainHeader{
+    grid-area: main;
+    margin: 30% auto auto auto;
+}
+.mainHeader h1{
+    font-size: 55px;
+    letter-spacing: 8px;
+    text-align: center;
+    margin-bottom:5px ;
+    color: white;
+
+}
+.subTitle{
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+}
+
+#homeMainContent svg{
+    grid-area: right;
+    margin: 10% auto auto auto;
+
+}
+
+
+
+/* main content moods */
+@keyframes expandDiv{
+    from{width: 0%; height: 0%;}
+    to{width: 100%; height: 100%;}
+}
+#moodSlideShow{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    animation: expandDiv 1s ease-in-out;
+}
+#slideShowCloseBackground{
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0,0.4);
+    padding: 0px 5px;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+
+}
+.slideShowClose{
+    color: white;
+    
+}
+.viewSlide{
+    display: none;
+    
+}
+
+
+#moodsMainContent{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* grid-template-rows: auto auto auto; */
+    width: 100%;
+    height: 100%;
+    background: url('img/homebg.jpg') no-repeat center center / cover;
+    overflow: auto;
+}
+
+#moodsMainContent h1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: left;
+    margin-left: 15px;
+    margin-top:10px;
+    color: white;
+}
+.moodContainer{
+    border: 2px solid white;
+    border-radius:15px;
+    overflow: hidden;
+    width: 90%;
+    height: 150px;
+    position: relative;
+    margin: 15px;
+    background: rgba(100, 98, 100,0.4);
+
+}
+.moodContainer p, h2{
+    margin: 5px;
+    padding: 5px;
+    position: absolute;
+}
+.moodContainer h2{
+    bottom: 25%;
+    left: 1%;
+    color: white;
+}
+.moodContainer p{
+    bottom: 5%;
+    left: 1%;
+    color: rgb(238, 238, 238);
+}
+
+.moodContainer i{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    cursor: pointer;
+    color: white;
+}
+
+
+.moodContainer img{
+    width: 100%;
+}
+
+.bluesSpan{
+    color: white;
+    left: 3%;
+}
+
+
+/* main about content */
+#aboutMainContent{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: url('img/homebg.jpg') no-repeat center center / cover;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+#aboutLogoTitle{
+    margin: 0px auto 50px auto;
+
+}
+#aboutLogoTitle h1{
+    display: inline-block;
+    font-size: 55px;
+    color: white;
+
+}
+#aboutLogoTitle i{
+    color: white;
+    margin-inline-end: -5px;
+}
+
+#aboutTextDiv {
+    margin: 50px auto 50px auto;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 15px;
+}
+#aboutTextDiv p{
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+#note{
+    margin: 0px auto 150px auto;
+}
+#note{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    
+}
+#note span{
+    color: #a11aca ;
+}
+
+#socialLinks{
+    margin: 0px auto 15px auto;
+}
+#links{
+    background: rgba(151, 149, 149, 0.2);
+    border-radius: 15px;
+    padding: 10px;
+}
+#links a{
+    text-decoration: none;
+    margin-left: 30px;
+}
+#links:nth-child(1){
+    margin: 0 !important;
+}
+#links i{
+    color: white;
+}
+#links i.faceIcon:hover{
+    color: #4267B2;
+}
+#links i.twitterIcon:hover{
+    color: #1DA1F2;
+}
+#links i.soundIcon:hover{
+    color: #ff7700 ;
+}
+
+/* responsive stuff */
+@media (max-width:1500px){
+    .moodContainer p{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:1150px){
+    .navtitle{
+        width: 15%;
+    }
+    .moodContainer p{
+        font-size: 13px;
+    }
+}
+
+@media (max-width:1100px){
+    .mainHeader{
+        margin: 35% auto auto auto;
+    }
+    .mainHeader h1{
+        font-size: 45px;
+
+    }
+    .subTitle{
+        font-size: 16px;
+    }
+
+    #homeMainContent svg{
+        margin: 10% auto auto auto;
+        width: 488px;
+        height: 318px;
+    }
+
+}
+
+@media (max-width:950px){
+    .navtitle{
+        width: 25%;
+    }
+    .mainHeader{
+        margin: 35% auto auto auto;
+    }
+    .mainHeader h1{
+        font-size: 35px;
+    }
+    .subTitle{
+        font-size: 14px;
+    }
+
+    #homeMainContent svg{
+        margin: 12% auto auto auto;
+        width: 372px;
+        height: 242px;
+
+    }
+
+    #moodsMainContent{
+    grid-template-columns: auto auto;
+
+    }
+
+    #moodsMainContent h1{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .moodContainer p{
+        font-size: 12px;
+    }
+
+}
+@media screen and (max-width:850px){
+    .navtitle{
+        width: 20%;
+    }
+}
+
+@media (max-width:650px){
+   .collapsebtn div{
+       width: 27px;
+       height: 3px;
+       background: white;
+       margin: 5px;
+    }
+
+    .collapsebtn{
+        position: absolute;
+        cursor: pointer;
+        right: 4%;
+        top:50%;
+        transform: translate(-4%,-50%);
+        z-index: 2;
+    }
+    
+    nav{
+        position: relative;
+    }
+    
+    .navtitle{
+        width: 35%;
+        z-index: 2;
+    }
+
+    .timer{
+        margin-right:40% ;
+    }
+    .nav-links{
+        position: fixed;
+        background: #0a0a0a;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(150px at 90% -35%);
+        -webkit-clip-path: circle(150px at 90% -35%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+        z-index: 1;
+
+    }
+
+    .decollapse{
+        clip-path: circle(1000px at 90% -15%);
+        -webkit-clip-path: circle(1000px at 90% -15%);
+        pointer-events: all;
+    }
+
+    /* collapsebtn after activation */
+    div.collapseLineIactive{
+        transition: all 0.25s ease-in-out;
+        transform: rotate(-45deg) translate(-7px, 5px);
+    }
+    div.collapseLineIIactive{
+        opacity: 0;
+    }
+    div.collapseLineIIIactive{
+        transition: all 0.25s ease-in-out;
+        transform: rotate(45deg) translate(-6px, -5px);
+    }
+
+
+
+
+    .nav-links li a{
+       font-size: 21px;
+    }
+
+    .nav-links li{
+        opacity: 0;
+    }
+
+
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }  
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }  
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    li.fade{
+        opacity: 1;
+    }
+    #timeDivContainer{
+        width: 100%;
+        top: 85%;
+
+    }
+
+
+    #setTimer{
+        padding-top: 5px;
+    }
+
+    #homeMainContent{
+        grid-template-areas:
+        'main main main'
+        'right right right'
+        'footer footer footer';
+        grid-gap: 10px;
+        padding: 10px;
+        background: url('img/homebg.jpg') no-repeat center center / cover;
+    }
+    .mainHeader{
+        margin: 15% auto auto auto;
+    }
+    .mainHeader h1{
+        font-size: 45px;
+
+    }
+    .subTitle{
+        font-size: 20px;
+    }
+
+    #homeMainContent svg{
+        margin: auto auto auto auto;
+        width: 418px;
+        height: 273px;
+
+    }
+
+    #moodsMainContent{
+    grid-template-columns: auto;
+
+    }
+
+    #moodsMainContent h1{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .moodContainer{
+        width: 95%;
+    }
+
+    #aboutLogoTitle h1{
+        font-size: 45px;
+    }
+    #aboutTextDiv p{
+        font-size: 18px;
+    }
+
+    #note{
+        font-size: 16px;
+        
+    }
+    #links i.faceIcon{
+    color: #4267B2;
+    }
+    #links i.twitterIcon{
+    color: #1DA1F2;
+    }
+    #links i.soundIcon{
+    color: #ff7700;
+    margin-right: 30px;
+    }
+    .moodContainer p{
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width:450px){
+    .moodContainer p{
+        font-size: 13px;
+    }
+}
+@media (max-width:400px){
+    .navtitle{
+        width: 40%;
+    }
+
+    .mainHeader{
+        margin: 15% auto auto auto;
+    }
+    .mainHeader h1{
+        font-size: 40px;
+
+    }
+    .subTitle{
+        font-size: 19px;
+    }
+
+    #homeMainContent svg{
+        margin: auto auto auto auto;
+        width: 360px;
+        height: 235px;
+
+    }
+
+
+    .moodContainer{
+        width: 90%;
+    }
+
+    #aboutTextDiv {
+    margin: 50px 5% ;
+}
+}
